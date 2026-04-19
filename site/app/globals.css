@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #1C1917;
+  --color-on-primary: #FFFFFF;
+  --color-secondary: #44403C;
+  --color-accent: #A16207;
+  --color-background: #FAFAF9;
+  --color-foreground: #0C0A09;
+  --color-muted: #E8ECF0;
+  --color-border: #D6D3D1;
+  --color-destructive: #DC2626;
+  --color-ring: #1C1917;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+
+@layer components {
+  .container-ed {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+  .eyebrow {
+    @apply font-body text-[11px] uppercase tracking-widest text-stone-600;
+  }
+  .rule {
+    @apply h-px w-full bg-ink/15;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-ink px-6 py-3.5 text-sm font-medium uppercase tracking-widest text-white transition-[background-color,transform,box-shadow] duration-200 ease-editorial hover:bg-stone-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
+    cursor: pointer;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-ink px-6 py-3.5 text-sm font-medium uppercase tracking-widest text-ink transition-[background-color,color] duration-200 ease-editorial hover:bg-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
+    cursor: pointer;
+  }
+  .link-underline {
+    @apply relative inline-block text-ink after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-ink after:transition-transform after:duration-300 after:ease-editorial hover:after:origin-left hover:after:scale-x-100;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
